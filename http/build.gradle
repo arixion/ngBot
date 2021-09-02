@@ -1,0 +1,7 @@
+plugins {
+	id 'io.ngbot.java-library-conventions'
+}
+
+dependencies {
+	implementation 'io.netty:netty-all'
+}

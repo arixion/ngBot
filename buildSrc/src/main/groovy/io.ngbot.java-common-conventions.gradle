@@ -1,0 +1,21 @@
+
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    constraints {
+        implementation 'org.apache.commons:commons-text:1.9'
+		implementation 'org.apache.commons:commons-lang3:3.12.0'
+        implementation 'io.netty:netty-all:4.1.67.Final'
+    }
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
