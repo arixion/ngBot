@@ -9,6 +9,17 @@ plugins {
 dependencies {
 	implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml'
 	implementation 'org.apache.logging.log4j:log4j-core'
+	implementation 'org.apache.logging.log4j:log4j-slf4j-impl'
 	implementation 'org.cache2k:cache2k-core'
 	implementation 'org.cache2k:cache2k-api'
+	implementation 'org.apache.tika:tika-core'
+	
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	
+	testAnnotationProcessor 'org.projectlombok:lombok'
+}
+
+test {
+	useJUnitPlatform()
 }

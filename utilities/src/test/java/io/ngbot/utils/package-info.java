@@ -15,32 +15,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package io.ngbot.protocol.http;
-
-import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.codec.http.FullHttpRequest;
-import lombok.extern.log4j.Log4j2;
 
 /**
  * @author Arpan Mukhopadhyay
  *
  */
-@Log4j2
-@Sharable
-public class Http1RequestHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
-
-	
-	@Override
-	protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest msg) throws Exception {
-		logger.info("{}", msg);
-	}
-
-	@Override
-	public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-		logger.error(cause.getMessage());
-		if (logger.isTraceEnabled()) cause.printStackTrace();
-		ctx.close();
-	}
-}
+package io.ngbot.utils;
