@@ -6,3 +6,9 @@ plugins {
     id 'io.ngbot.java-common-conventions'
     id 'java-library'
 }
+
+dependencies {
+	constraints {
+		implementation 'com.jayway.jsonpath:json-path:2.6.0'
+	}
+}
