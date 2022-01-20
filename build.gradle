@@ -1,0 +1,26 @@
+group 'org.ngbot'
+version '1.0-SNAPSHOT'
+
+
+configure(subprojects) { project ->
+    description = 'New generation bot for protocol simulation'
+
+    apply plugin: 'java-library'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'com.fasterxml.jackson:jackson-bom:2.13.1'
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            cacheChangingModulesFor 0, "seconds"
+            cacheDynamicVersionsFor 0, "seconds"
+        }
+    }
+}
