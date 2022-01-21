@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/common-stack" />
             <option value="$PROJECT_DIR$/commons-lib" />
+            <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/gui" />
             <option value="$PROJECT_DIR$/udp" />
           </set>

@@ -8,4 +8,5 @@ include 'commons-lib'
 include 'gui'
 include 'udp'
 include 'common-stack'
+include 'core'
 
