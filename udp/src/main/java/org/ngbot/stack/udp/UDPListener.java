@@ -18,9 +18,16 @@
 
 package org.ngbot.stack.udp;
 
+import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.*;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.nio.NioDatagramChannel;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.ngbot.stack.common.StackListener;
 import org.ngbot.stack.common.StackListenerConfiguration;
+
+import java.net.InetSocketAddress;
 
 /**
  * @author Arpan Mukhopadhyay
@@ -28,23 +35,50 @@ import org.ngbot.stack.common.StackListenerConfiguration;
 @Slf4j
 public class UDPListener implements StackListener {
 
+    @Getter
+    private final String name;
 
+    private final Bootstrap bootstrap;
+    private final EventLoopGroup eventLoopGroup;
+    private final StackListenerConfiguration configuration;
+
+    /**
+     * @param configuration
+     */
     public UDPListener(StackListenerConfiguration configuration) {
+        this.configuration = configuration;
+        this.eventLoopGroup = new NioEventLoopGroup();
+        this.bootstrap = new Bootstrap();
+        this.name = this.configuration.getName();
+    }
 
+    /**
+     *
+     */
+    private void init() {
+        InetSocketAddress listenAddress = InetSocketAddress.createUnresolved(configuration.getEndpoint().getAddress().getHostAddress(), configuration.getEndpoint().getPort());
+        this.bootstrap.group(this.eventLoopGroup)
+                .channel(NioDatagramChannel.class)
+                .option(ChannelOption.SO_BROADCAST, true)
+                .option(ChannelOption.SO_KEEPALIVE, true)
+                .option(ChannelOption.AUTO_CLOSE, false)
+                .handler(new ChannelInitializer<Channel>() {
+
+                    @Override
+                    protected void initChannel(Channel ch) throws Exception {
+                        ChannelPipeline pipeline = ch.pipeline();
+
+                    }
+                }).localAddress(listenAddress);
     }
 
     @Override
-    public void listen() {
-
+    public void bind() throws Exception {
+        bootstrap.bind().sync().channel();
     }
 
     @Override
-    public void shutdown() {
-
-    }
-
-    @Override
-    public void restart() {
-
+    public void stop() {
+        eventLoopGroup.shutdownGracefully();
     }
 }

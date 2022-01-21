@@ -16,21 +16,25 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package org.ngbot.stack.common;
+package org.ngbot.decoder;
+
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.socket.DatagramPacket;
+import io.netty.handler.codec.MessageToMessageDecoder;
+
+import java.util.List;
 
 /**
+ * Soul purpose of this class is to make a
+ * bogus decoder.
+ *
  * @author Arpan Mukhopadhyay
  */
-public interface StackListener {
+public class BogusUDPDecoder extends MessageToMessageDecoder<DatagramPacket> {
 
-    /**
-     *
-     */
-    void bind() throws Exception;
-
-    /**
-     *
-     */
-    void stop();
-
+    @Override
+    protected void decode(ChannelHandlerContext ctx, DatagramPacket msg, List<Object> out) throws Exception {
+        ByteBuf data = msg.content();
+    }
 }

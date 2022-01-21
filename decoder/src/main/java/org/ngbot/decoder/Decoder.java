@@ -16,21 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package org.ngbot.stack.common;
+package org.ngbot.decoder;
 
 /**
  * @author Arpan Mukhopadhyay
  */
-public interface StackListener {
-
-    /**
-     *
-     */
-    void bind() throws Exception;
-
-    /**
-     *
-     */
-    void stop();
-
+public interface Decoder {
 }
