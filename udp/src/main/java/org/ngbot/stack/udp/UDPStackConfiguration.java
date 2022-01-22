@@ -30,6 +30,8 @@ import java.net.UnknownHostException;
  */
 public class UDPStackConfiguration extends StackListenerConfiguration {
 
+    private static final int DEFAULT_PORT = 8805;
+
     @Getter
     @Setter
     private boolean server;
@@ -48,11 +50,32 @@ public class UDPStackConfiguration extends StackListenerConfiguration {
     /**
      *
      * @param name
+     * @param address
+     * @throws UnknownHostException
+     */
+    public UDPStackConfiguration(String name, String address) throws UnknownHostException {
+        super(name, null, new StackEndpoint(address, DEFAULT_PORT));
+    }
+
+    /**
+     *
+     * @param name
      * @param description
      * @param address
      * @param port
      */
     public UDPStackConfiguration(String name, String description, String address, int port) throws UnknownHostException {
         super(name, description, new StackEndpoint(address, port));
+    }
+
+    /**
+     *
+     * @param name
+     * @param description
+     * @param address
+     * @throws UnknownHostException
+     */
+    public UDPStackConfiguration(String name, String description, String address) throws UnknownHostException {
+        super(name, description, new StackEndpoint(address, DEFAULT_PORT));
     }
 }

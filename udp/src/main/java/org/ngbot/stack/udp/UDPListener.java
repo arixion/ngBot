@@ -24,6 +24,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioDatagramChannel;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.ngbot.decoder.Decoder;
 import org.ngbot.stack.common.StackListener;
 import org.ngbot.stack.common.StackListenerConfiguration;
 
@@ -42,6 +43,7 @@ public class UDPListener implements StackListener {
     private final EventLoopGroup eventLoopGroup;
     private final StackListenerConfiguration configuration;
 
+
     /**
      * @param configuration
      */
@@ -50,6 +52,7 @@ public class UDPListener implements StackListener {
         this.eventLoopGroup = new NioEventLoopGroup();
         this.bootstrap = new Bootstrap();
         this.name = this.configuration.getName();
+        init();
     }
 
     /**
