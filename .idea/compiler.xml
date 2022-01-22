@@ -12,9 +12,9 @@
         <module name="ngBot.commons-lib.main" />
         <module name="ngBot.plugin-manager.main" />
         <module name="ngBot.common-stack.main" />
+        <module name="ngBot.engine.main" />
         <module name="ngBot.udp.main" />
         <module name="ngBot.gui.main" />
-        <module name="ngBot.components.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />

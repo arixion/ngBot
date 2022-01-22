@@ -1,4 +1,4 @@
 dependencies {
     api(project(":core"))
-    api(project(":components"))
+    api(project(":engine"))
 }
