@@ -20,6 +20,7 @@ package org.ngbot.stack.udp;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.ngbot.decoder.Decoder;
 import org.ngbot.stack.common.StackEndpoint;
 import org.ngbot.stack.common.StackListenerConfiguration;
 
@@ -41,10 +42,11 @@ public class UDPStackConfiguration extends StackListenerConfiguration {
      * @param name
      * @param address
      * @param port
+     * @param decoder
      * @throws UnknownHostException
      */
-    public UDPStackConfiguration(String name, String address, int port) throws UnknownHostException {
-        super(name, null, new StackEndpoint(address, port));
+    public UDPStackConfiguration(String name, String address, int port, Decoder decoder) throws UnknownHostException {
+        super(name, null, new StackEndpoint(address, port), decoder);
     }
 
     /**
@@ -53,8 +55,8 @@ public class UDPStackConfiguration extends StackListenerConfiguration {
      * @param address
      * @throws UnknownHostException
      */
-    public UDPStackConfiguration(String name, String address) throws UnknownHostException {
-        super(name, null, new StackEndpoint(address, DEFAULT_PORT));
+    public UDPStackConfiguration(String name, String address, Decoder decoder) throws UnknownHostException {
+        super(name, null, new StackEndpoint(address, DEFAULT_PORT), decoder);
     }
 
     /**
@@ -64,8 +66,8 @@ public class UDPStackConfiguration extends StackListenerConfiguration {
      * @param address
      * @param port
      */
-    public UDPStackConfiguration(String name, String description, String address, int port) throws UnknownHostException {
-        super(name, description, new StackEndpoint(address, port));
+    public UDPStackConfiguration(String name, String description, String address, int port, Decoder decoder) throws UnknownHostException {
+        super(name, description, new StackEndpoint(address, port), decoder);
     }
 
     /**
@@ -75,7 +77,7 @@ public class UDPStackConfiguration extends StackListenerConfiguration {
      * @param address
      * @throws UnknownHostException
      */
-    public UDPStackConfiguration(String name, String description, String address) throws UnknownHostException {
-        super(name, description, new StackEndpoint(address, DEFAULT_PORT));
+    public UDPStackConfiguration(String name, String description, String address, Decoder decoder) throws UnknownHostException {
+        super(name, description, new StackEndpoint(address, DEFAULT_PORT), decoder);
     }
 }

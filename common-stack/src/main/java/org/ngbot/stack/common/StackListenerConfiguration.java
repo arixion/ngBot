@@ -19,6 +19,7 @@
 package org.ngbot.stack.common;
 
 import lombok.Getter;
+import org.ngbot.decoder.Decoder;
 import org.ngbot.util.Assert;
 
 import java.util.ArrayList;
@@ -31,6 +32,8 @@ public abstract class StackListenerConfiguration extends AbstractStackConfigurat
 
     @Getter
     private final StackEndpoint endpoint;
+    @Getter
+    private final Decoder decoder;
     private List<StackEndpoint> secondaryEndpoints = new ArrayList<>(); //required for multi homing enabled endpoints
 
     /**
@@ -38,10 +41,12 @@ public abstract class StackListenerConfiguration extends AbstractStackConfigurat
      * @param name
      * @param description
      * @param endpoint
+     * @param decoder
      */
-    public StackListenerConfiguration(String name, String description, StackEndpoint endpoint) {
+    public StackListenerConfiguration(String name, String description, StackEndpoint endpoint, Decoder decoder) {
         super(name, description);
         this.endpoint = endpoint;
+        this.decoder = decoder;
     }
 
     /**

@@ -16,10 +16,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package org.ngbot.component.core;
+package org.ngbot.component.render;
 
 /**
- *
+ * @author Arpan Mukhopadhyay
  */
-public class RenderingEngine {
+public abstract class RenderingEngine {
 }
