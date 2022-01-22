@@ -31,7 +31,7 @@ import java.util.List;
  *
  * @author Arpan Mukhopadhyay
  */
-public class BogusUDPDecoder extends MessageToMessageDecoder<DatagramPacket> {
+public class BogusUDPDecoder extends MessageToMessageDecoder<DatagramPacket> implements Decoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, DatagramPacket msg, List<Object> out) throws Exception {
