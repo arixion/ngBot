@@ -10,6 +10,7 @@ javafx {
 }
 
 dependencies {
+    api(project(":components"))
 }
 
 mainClassName = "$moduleName/org.ngbot.app.NgBotApplication"

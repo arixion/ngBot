@@ -10,4 +10,6 @@ include 'udp'
 include 'common-stack'
 include 'core'
 include 'decoder'
+include 'components'
+include 'plugin-manager'
 
