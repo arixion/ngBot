@@ -25,6 +25,8 @@ import io.netty.channel.socket.nio.NioDatagramChannel;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.ngbot.decoder.Decoder;
+import org.ngbot.decoder.bogus.BogusDecoder;
+import org.ngbot.decoder.core.DecoderLoadingException;
 import org.ngbot.stack.common.StackListener;
 import org.ngbot.stack.common.StackListenerConfiguration;
 
@@ -59,6 +61,15 @@ public class UDPListener implements StackListener {
      *
      */
     private void init() {
+        Decoder messageDecoder = configuration.getDecoder();
+        if (messageDecoder == null) {
+            //load the default decoder considering user does not want to convert raw UDP message
+            try {
+                messageDecoder = loadDefaultDecoder();
+            } catch (DecoderLoadingException e) {
+                
+            }
+        }
         InetSocketAddress listenAddress = InetSocketAddress.createUnresolved(configuration.getEndpoint().getAddress().getHostAddress(), configuration.getEndpoint().getPort());
         this.bootstrap.group(this.eventLoopGroup)
                 .channel(NioDatagramChannel.class)
@@ -83,5 +94,16 @@ public class UDPListener implements StackListener {
     @Override
     public void stop() {
         eventLoopGroup.shutdownGracefully();
+    }
+
+    /**
+     * Loads the default decoder. Throws exception if
+     * default decoder loading fails
+     *
+     * @return Decoder
+     * @throws DecoderLoadingException
+     */
+    private Decoder loadDefaultDecoder() throws DecoderLoadingException {
+        return new BogusDecoder();
     }
 }

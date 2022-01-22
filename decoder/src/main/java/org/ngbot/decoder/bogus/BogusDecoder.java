@@ -16,33 +16,27 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package org.ngbot.app;
+package org.ngbot.decoder.bogus;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.socket.DatagramPacket;
+import io.netty.handler.codec.MessageToMessageDecoder;
 import lombok.extern.slf4j.Slf4j;
+import org.ngbot.decoder.Decoder;
+
+import java.util.List;
 
 /**
+ * Soul purpose of this class is to make a
+ * bogus decoder.
+ *
  * @author Arpan Mukhopadhyay
  */
-@Slf4j
-public class NgBotApplication extends Application {
+public class BogusDecoder extends MessageToMessageDecoder<DatagramPacket> implements Decoder {
 
     @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("scene.fxml"));
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
-        stage.setTitle("JavaFX and Gradle");
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public static void main(String[] args) {
-        logger.info("Starting ngBot application");
-        launch(args);
+    protected void decode(ChannelHandlerContext ctx, DatagramPacket msg, List<Object> out) throws Exception {
+        ByteBuf data = msg.content();
     }
 }
