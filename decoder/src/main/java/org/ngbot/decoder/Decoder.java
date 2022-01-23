@@ -18,8 +18,10 @@
 
 package org.ngbot.decoder;
 
+import io.netty.channel.ChannelHandler;
+
 /**
  * @author Arpan Mukhopadhyay
  */
-public interface Decoder {
+public interface Decoder extends ChannelHandler {
 }

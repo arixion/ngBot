@@ -18,14 +18,15 @@
 
 package org.ngbot.decoder.bogus;
 
+import java.util.List;
+
+import org.ngbot.decoder.Decoder;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.socket.DatagramPacket;
 import io.netty.handler.codec.MessageToMessageDecoder;
 import lombok.extern.slf4j.Slf4j;
-import org.ngbot.decoder.Decoder;
-
-import java.util.List;
 
 /**
  * Soul purpose of this class is to make a
@@ -33,10 +34,13 @@ import java.util.List;
  *
  * @author Arpan Mukhopadhyay
  */
+@Slf4j
 public class BogusDecoder extends MessageToMessageDecoder<DatagramPacket> implements Decoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, DatagramPacket msg, List<Object> out) throws Exception {
         ByteBuf data = msg.content();
+        logger.info("{}", data);
+        
     }
 }

@@ -42,7 +42,7 @@ public class StackEndpoint {
      */
     public StackEndpoint(InetAddress address, int port) {
         Assert.notNull(address, "Address can not be null");
-        Assert.isPort(port, "Not a valid port " + port);
+        Assert.notPort(port, "Not a valid port " + port);
         this.id = UUID.randomUUID().toString();
         this.address = address;
         this.port = port;
@@ -54,7 +54,7 @@ public class StackEndpoint {
      */
     public StackEndpoint(String address, int port) throws UnknownHostException {
         Assert.notBlankText(address, "Address can not be null or blank");
-        Assert.isPort(port, "Not a valid port " + port);
+        Assert.notPort(port, "Not a valid port " + port);
         this.id = UUID.randomUUID().toString();
         this.address = InetAddress.getByName(address);
         this.port = port;

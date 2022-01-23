@@ -81,7 +81,7 @@ public class Assert {
      * @param port
      * @param message
      */
-    public static void isPort(int port, String message) {
+    public static void notPort(int port, String message) {
         if (port < 0 || port > 65535) {
             throw new IllegalArgumentException(message);
         }
