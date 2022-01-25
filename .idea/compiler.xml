@@ -7,14 +7,24 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.22/9c08ea24c6eb714e2d6170e8122c069a0ba9aacf/lombok-1.18.22.jar" />
         </processorPath>
+        <module name="ngBot.engine.main" />
+        <module name="ngBot.udp.main" />
+        <module name="ngBot.decoder.test" />
+        <module name="ngBot.plugin-manager.test" />
+        <module name="ngBot.gui.main" />
+        <module name="ngBot.common-stack.test" />
+        <module name="ngBot.gui.test" />
         <module name="ngBot.core.main" />
+        <module name="ngBot.protocols.test" />
         <module name="ngBot.decoder.main" />
         <module name="ngBot.commons-lib.main" />
         <module name="ngBot.plugin-manager.main" />
         <module name="ngBot.common-stack.main" />
-        <module name="ngBot.engine.main" />
-        <module name="ngBot.udp.main" />
-        <module name="ngBot.gui.main" />
+        <module name="ngBot.commons-lib.test" />
+        <module name="ngBot.engine.test" />
+        <module name="ngBot.protocols.main" />
+        <module name="ngBot.core.test" />
+        <module name="ngBot.udp.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />

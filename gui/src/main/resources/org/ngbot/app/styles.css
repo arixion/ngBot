@@ -1,15 +1,47 @@
-#background {
-    -bg1: rgb (46, 52, 64);
-    -bg2: rgb (59, 66, 82);
-    -bg3: rgb (67, 76, 94);
-    -bg4: rgb (76, 86, 106);
-    -fx-background-color: -bg2;
-
+@font-face {
+    src: url('Roboto-Regular.ttf');
 }
+
+* {
+    -fx-font-family: 'Roboto';
+    -fx-font-smoothing-type: gray;
+    -fx-font-size: 15px;
+}
+
 .tool-bar {
     -fx-background-color: #2E3440;
 }
 
-.menu-bar {
+.menu-bar, .menu, .menu-item, .context-menu {
     -fx-background-color: #3B4252;
+}
+
+.menu {
+    -fx-padding: 2 4;
+}
+
+.menu-item:hover {
+    -fx-background-color: #4C566A;
+}
+
+.context-menu {
+    -fx-border-color: #4C566A;
+}
+
+.context-menu .menu-item {
+    -fx-padding: 2 2;
+}
+
+.menu .label, .menu-item .label {
+    -fx-text-fill: #ECEFF4;
+}
+
+.context-menu > * > .separator > .line {
+    -fx-border-color: #4C566A;
+    -fx-border-width: 0.5;
+    -fx-border-inset: -1;
+}
+
+.context-menu .accelerator-text {
+    -fx-text-fill: #88C0D0;
 }
