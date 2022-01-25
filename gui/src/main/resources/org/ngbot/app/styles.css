@@ -1,0 +1,15 @@
+#background {
+    -bg1: rgb (46, 52, 64);
+    -bg2: rgb (59, 66, 82);
+    -bg3: rgb (67, 76, 94);
+    -bg4: rgb (76, 86, 106);
+    -fx-background-color: -bg2;
+
+}
+.tool-bar {
+    -fx-background-color: #2E3440;
+}
+
+.menu-bar {
+    -fx-background-color: #3B4252;
+}
