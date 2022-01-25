@@ -1,5 +1,5 @@
 /*
- * ngBot (https://github.com/arixion/ngBot) is a free software to simulate varius network protocol
+ * ngBot (https://github.com/arixion/ngBot) is a free software to simulate various network protocol
  * Copyright (C) 2022-present.  Arpan Mukhopadhyay. All rights reserved
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,8 +18,10 @@
 
 package org.ngbot.decoder;
 
+import io.netty.channel.ChannelHandler;
+
 /**
  * @author Arpan Mukhopadhyay
  */
-public interface Decoder {
+public interface Decoder extends ChannelHandler {
 }

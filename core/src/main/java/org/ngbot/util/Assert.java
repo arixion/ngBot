@@ -1,5 +1,5 @@
 /*
- * ngBot (https://github.com/arixion/ngBot) is a free software to simulate varius network protocol
+ * ngBot (https://github.com/arixion/ngBot) is a free software to simulate various network protocol
  * Copyright (C) 2022-present.  Arpan Mukhopadhyay. All rights reserved
  *
  * This program is free software: you can redistribute it and/or modify
@@ -81,7 +81,7 @@ public class Assert {
      * @param port
      * @param message
      */
-    public static void isPort(int port, String message) {
+    public static void notPort(int port, String message) {
         if (port < 0 || port > 65535) {
             throw new IllegalArgumentException(message);
         }

@@ -12,4 +12,5 @@ include 'core'
 include 'decoder'
 include 'engine'
 include 'plugin-manager'
+include 'protocols'
 
