@@ -14,7 +14,7 @@
 
 .tool-bar {
     -fx-background-color: #2E3440;
-    -fx-spacing: 0px;
+    -fx-spacing: 4px;
 }
 
 .tool-bar .button {
@@ -40,6 +40,26 @@
 
 .menu:hover, .menu-item:hover {
     -fx-background-color: #4C566A;
+}
+
+.tool-bar .menu-button {
+    -fx-background-color: rgba(239, 233, 240, 0.08);
+    -fx-padding: 1 6;
+    -fx-border-color: #4C566A;
+    -fx-border-radius: 4px;
+    -fx-spacing: 0;
+}
+
+.tool-bar .menu-button .label {
+    -fx-padding: 0 4 1 4;
+}
+
+.tool-bar .menu-button .arrow-button {
+    -fx-padding: 0 6 1 6;
+}
+
+.tool-bar .menu-button .arrow-button .arrow {
+    -fx-background-color: #4C566A
 }
 
 .context-menu {
