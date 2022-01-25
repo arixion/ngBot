@@ -8,6 +8,10 @@
     -fx-font-size: 15px;
 }
 
+.split-pane, .split-pane .split-pane-divider {
+    -fx-background-color: #2E3440;
+}
+
 .tool-bar {
     -fx-background-color: #2E3440;
 }
@@ -20,7 +24,7 @@
     -fx-padding: 2 4;
 }
 
-.menu-item:hover {
+.menu:hover, .menu-item:hover {
     -fx-background-color: #4C566A;
 }
 
@@ -29,7 +33,7 @@
 }
 
 .context-menu .menu-item {
-    -fx-padding: 2 2;
+    -fx-padding: 2 4;
 }
 
 .menu .label, .menu-item .label {
@@ -44,4 +48,12 @@
 
 .context-menu .accelerator-text {
     -fx-text-fill: #88C0D0;
+}
+
+.label {
+    -fx-text-fill: #ECEFF4;
+}
+
+#HBox, #VBox, #Pane {
+    -fx-background-color: #2E3440;
 }
