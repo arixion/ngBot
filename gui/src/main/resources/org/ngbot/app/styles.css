@@ -126,3 +126,19 @@
 .master-split-pane > .split-pane-divider {
     -fx-background-color: #3B4252;
 }
+
+.tab-header-area .tab-header-background {
+    -fx-background-color: #2E3440;
+}
+
+.tab-header-area .tab {
+    -fx-background-color: transparent;
+}
+
+.tab .tab-container .tab-label {
+    -fx-text-fill: #ECEFF4;
+}
+
+.tab-header-area .tab:hover {
+    -fx-background-color: #1b202b;
+}
