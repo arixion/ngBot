@@ -43,6 +43,7 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -164,15 +165,18 @@
                </graphic>
             </Button>
          </items></ToolBar>
-      <SplitPane dividerPositions="0.7" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" VBox.vgrow="ALWAYS">
+      <SplitPane dividerPositions="0.7" orientation="VERTICAL" styleClass="master-split-pane" VBox.vgrow="ALWAYS">
         <items>
-            <SplitPane dividerPositions="0.325">
+            <SplitPane dividerPositions="0.5">
                <items>
-                  <StackPane prefHeight="150.0" prefWidth="200.0" />
-                  <StackPane prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane styleClass="no-border-stack-pane">
+                     <children>
+                        <TreeView prefHeight="200.0" prefWidth="200.0" />
+                     </children></StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="no-border-stack-pane" />
                </items>
             </SplitPane>
-            <StackPane alignment="TOP_LEFT" prefHeight="181.0" prefWidth="898.0">
+            <StackPane alignment="TOP_LEFT">
                <children>
                   <fx:include source="execution.fxml" />
                </children></StackPane>

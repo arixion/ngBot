@@ -12,6 +12,15 @@
     -fx-background-color: #2E3440;
 }
 
+.tree-view .tree-cell {
+    -fx-background-color: #3B4252;
+}
+
+.tree-view {
+    -fx-background-insets: -1;
+    -fx-background-color: #3B4252;
+}
+
 .tool-bar {
     -fx-background-color: #2E3440;
     -fx-spacing: 4px;
@@ -80,7 +89,7 @@
     -fx-border-inset: -1;
 }
 
-.separator:vertical > .line {
+.separator:vertical > .line, .separator:horizontal > .line {
     -fx-border-color: #4C566A;
     -fx-border-width: 0.5;
     -fx-border-inset: -1;
@@ -94,6 +103,26 @@
     -fx-text-fill: #ECEFF4;
 }
 
-#HBox, #VBox, #Pane {
+#HBox, #VBox, #Pane, #StackPane {
     -fx-background-color: #2E3440;
+}
+
+.no-border-stack-pane {
+    -fx-margin: 0;
+    -fx-padding: 0;
+    -fx-spacing: 0;
+    -fx-border-width: 0;
+}
+
+.test-flow-pane {
+    -fx-background-color: #3B4252;
+}
+
+.master-split-pane {
+    -fx-border-width: 0;
+    -fx-spacing: 0;
+}
+
+.master-split-pane > .split-pane-divider {
+    -fx-background-color: #3B4252;
 }
