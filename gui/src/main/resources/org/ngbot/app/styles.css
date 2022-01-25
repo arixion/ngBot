@@ -14,6 +14,20 @@
 
 .tool-bar {
     -fx-background-color: #2E3440;
+    -fx-spacing: 0px;
+}
+
+.tool-bar .button {
+    -fx-background-color: transparent;
+    -fx-padding: 2 4;
+}
+
+.tool-bar .button:hover {
+    -fx-background-color: #4C566A;
+}
+
+.tool-bar .button:pressed {
+    -fx-background-color: #434C5E;
 }
 
 .menu-bar, .menu, .menu-item, .context-menu {
@@ -41,6 +55,12 @@
 }
 
 .context-menu > * > .separator > .line {
+    -fx-border-color: #4C566A;
+    -fx-border-width: 0.5;
+    -fx-border-inset: -1;
+}
+
+.separator:vertical > .line {
     -fx-border-color: #4C566A;
     -fx-border-width: 0.5;
     -fx-border-inset: -1;
