@@ -178,7 +178,7 @@
                      </children></StackPane>
                   <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="no-border-stack-pane">
                      <children>
-                        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="ALL_TABS">
+                        <TabPane tabClosingPolicy="ALL_TABS">
                           <tabs>
                             <Tab text="Untitled Tab 1">
                               <content>

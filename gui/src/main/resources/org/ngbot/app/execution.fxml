@@ -51,7 +51,7 @@
                </graphic>
             </Button>
          </items></ToolBar>
-      <SplitPane dividerPositions="0.325" HBox.hgrow="ALWAYS">
+      <SplitPane dividerPositions="0.325" styleClass="execution-split-pane" HBox.hgrow="ALWAYS">
          <items>
             <StackPane styleClass="test-flow-pane" />
             <StackPane prefHeight="150.0" prefWidth="200.0" />

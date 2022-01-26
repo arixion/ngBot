@@ -116,6 +116,7 @@
 
 .test-flow-pane {
     -fx-background-color: #3B4252;
+    -fx-padding: 0;
 }
 
 .master-split-pane {
@@ -127,18 +128,51 @@
     -fx-background-color: #3B4252;
 }
 
+.execution-split-pane {
+    -fx-border-width: 0;
+    -fx-spacing: 0;
+    -fx-border-color: red;
+}
+
+.tab-pane .tab-header-area, .tab-pane .tab-header-area header-region {
+    -fx-padding: 0;
+}
+
 .tab-header-area .tab-header-background {
     -fx-background-color: #2E3440;
 }
 
 .tab-header-area .tab {
     -fx-background-color: transparent;
+    -fx-border-radius: 0;
 }
 
 .tab .tab-container .tab-label {
     -fx-text-fill: #ECEFF4;
 }
 
+.tab-header-area .tab {
+    -fx-border-radius: 0;
+}
+
+.tab-header-area .tab {
+    -fx-border-width: 3;
+    -fx-border-color: transparent;
+    -fx-padding: 1;
+    -fx-margin: 0 2;
+}
+
 .tab-header-area .tab:hover {
     -fx-background-color: #1b202b;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected {
+    -fx-border-color: transparent transparent #88C0D0 transparent;
+    -fx-background-color: rgba(216, 222, 233, 0.1);
+    -fx-border-width: 3;
+    -fx-border-radius: 0;
 }
