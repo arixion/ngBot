@@ -18,31 +18,55 @@
 
 package org.ngbot.app;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+
 import lombok.extern.slf4j.Slf4j;
 
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.security.PrivilegedAction;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
+ * This is the launcher class
+ *
  * @author Arpan Mukhopadhyay
  */
 @Slf4j
-public class NgBotApplication extends Application {
+public class NgBotApplication {
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("scene.fxml"));
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("styles.css").toExternalForm());
-        stage.setTitle("JavaFX and Gradle");
-        stage.setScene(scene);
-        stage.show();
+    private static final RuntimeClassLoader loader;
+
+    static {
+        List<URL> jars = new ArrayList<>();
+        loader = createClassLoader(jars);
     }
 
+    /**
+     *
+     * @param jars
+     * @return
+     */
+    @SuppressWarnings("removal")
+    private static RuntimeClassLoader createClassLoader(List<URL> jars) {
+       return java.security.AccessController.doPrivileged(
+               (PrivilegedAction<? extends RuntimeClassLoader>) () ->
+                       new RuntimeClassLoader(jars.toArray(new URL[jars.size()]))
+       );
+    }
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
-        logger.info("Starting ngBot application");
-        launch(args);
+        try {
+            Class<?> clazz = loader.loadClass("org.ngbot.app.gui.NgBotFrame");
+            Object instance = clazz.getDeclaredConstructor().newInstance();
+            Method startupMethod = clazz.getMethod("start", new Class[] {new String[0].getClass()});
+            startupMethod.invoke(instance, new Object[]{args});
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
     }
 }
