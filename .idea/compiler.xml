@@ -11,9 +11,11 @@
         <module name="ngBot.udp.main" />
         <module name="ngBot.decoder.test" />
         <module name="ngBot.plugin-manager.test" />
+        <module name="ngBot.launcher.main" />
         <module name="ngBot.gui.main" />
         <module name="ngBot.common-stack.test" />
         <module name="ngBot.gui.test" />
+        <module name="ngBot.launcher.test" />
         <module name="ngBot.core.main" />
         <module name="ngBot.protocols.test" />
         <module name="ngBot.decoder.main" />

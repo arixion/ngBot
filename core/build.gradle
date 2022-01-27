@@ -1,4 +1,3 @@
 dependencies {
-    api 'org.openjfx:javafx-controls:17.0.2'
     api(project(":commons-lib"))
 }

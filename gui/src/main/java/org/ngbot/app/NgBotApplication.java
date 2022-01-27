@@ -1,5 +1,5 @@
 /*
- * ngBot (https://github.com/arixion/ngBot) is a free software to simulate various network protocol
+ * ngBot (https://github.com/arixion/ngBot) is a free software to simulate varius network protocol
  * Copyright (C) 2022-present.  Arpan Mukhopadhyay. All rights reserved
  *
  * This program is free software: you can redistribute it and/or modify
@@ -18,55 +18,35 @@
 
 package org.ngbot.app;
 
-
-import lombok.extern.slf4j.Slf4j;
-
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.security.PrivilegedAction;
-import java.util.ArrayList;
-import java.util.List;
+import org.ngbot.app.gui.NgBotMainFrame;
+import org.ngbot.app.gui.SplashScreen;
 
 /**
- * This is the launcher class
- *
  * @author Arpan Mukhopadhyay
+ *
  */
-@Slf4j
 public class NgBotApplication {
-
-    private static final RuntimeClassLoader loader;
-
-    static {
-        List<URL> jars = new ArrayList<>();
-        loader = createClassLoader(jars);
-    }
-
-    /**
-     *
-     * @param jars
-     * @return
-     */
-    @SuppressWarnings("removal")
-    private static RuntimeClassLoader createClassLoader(List<URL> jars) {
-       return java.security.AccessController.doPrivileged(
-               (PrivilegedAction<? extends RuntimeClassLoader>) () ->
-                       new RuntimeClassLoader(jars.toArray(new URL[jars.size()]))
-       );
-    }
 
     /**
      *
      * @param args
      */
-    public static void main(String[] args) {
-        try {
-            Class<?> clazz = loader.loadClass("org.ngbot.app.gui.NgBotFrame");
-            Object instance = clazz.getDeclaredConstructor().newInstance();
-            Method startupMethod = clazz.getMethod("start", new Class[] {new String[0].getClass()});
-            startupMethod.invoke(instance, new Object[]{args});
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
+    public void start(String[] args) {
+       boolean gui = true;
+       if (gui) {
+           startGUI();
+       }
+    }
+
+    /**
+     * Starts the GUI
+     */
+    public void startGUI() {
+        SplashScreen splashScreen = new SplashScreen();
+        splashScreen.showSplash();
+        splashScreen.updateProgress(10);
+        NgBotMainFrame main = new NgBotMainFrame();
+        main.setVisible(true);
+        main.toFront();
     }
 }

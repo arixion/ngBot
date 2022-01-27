@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/decoder" />
             <option value="$PROJECT_DIR$/engine" />
             <option value="$PROJECT_DIR$/gui" />
+            <option value="$PROJECT_DIR$/launcher" />
             <option value="$PROJECT_DIR$/plugin-manager" />
             <option value="$PROJECT_DIR$/protocols" />
             <option value="$PROJECT_DIR$/udp" />

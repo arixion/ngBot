@@ -18,17 +18,10 @@
 
 package org.ngbot.app.gui;
 
+import javax.swing.*;
+
 /**
  * @author Arpan Mukhopadhyay
- *
  */
-public class NgBotFrame {
-
-    /**
-     *
-     * @param args
-     */
-    public void start(String[] args) {
-       System.out.println("Firing up the frame....");
-    }
+public class NgBotMainFrame extends JFrame {
 }

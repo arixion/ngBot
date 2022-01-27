@@ -15,7 +15,9 @@ configure(subprojects) { project ->
     }
 
     dependencies {
-        api 'ch.qos.logback:logback-classic:1.2.10'
+        api ('ch.qos.logback:logback-classic:1.2.10') {
+            exclude module: 'ch.qos.logback.classic.servlet'
+        }
         compileOnly 'org.projectlombok:lombok:1.18.22'
         annotationProcessor 'org.projectlombok:lombok:1.18.22'
         

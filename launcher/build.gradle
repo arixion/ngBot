@@ -1,0 +1,11 @@
+plugins {
+    id "application"
+    id "org.beryx.jlink" version "2.24.4"
+}
+
+dependencies {
+    api(project(":engine"))
+    api(project(":gui"))
+}
+
+mainClassName = "org.ngbot.app.Launcher"
