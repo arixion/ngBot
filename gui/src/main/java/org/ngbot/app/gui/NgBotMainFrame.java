@@ -18,10 +18,49 @@
 
 package org.ngbot.app.gui;
 
+import lombok.extern.slf4j.Slf4j;
+
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * @author Arpan Mukhopadhyay
  */
+@Slf4j
 public class NgBotMainFrame extends JFrame {
+
+    private LoggingPanel logPanel;
+
+    /**
+     *
+     */
+    public NgBotMainFrame() {
+        init();
+    }
+
+    /**
+     *
+     */
+    private void init() {
+        JPanel root = new JPanel(new BorderLayout());
+        JSplitPane mainSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+        root.add(mainSplitPane, BorderLayout.CENTER);
+        logPanel = createLoggingPanel();
+        root.add(logPanel);
+        getContentPane().add(root);
+        setTitle("NGBot");
+        setSize(new Dimension(640, 480));
+    }
+
+    /**
+     *
+     * @return
+     */
+    private LoggingPanel createLoggingPanel() {
+        LoggingPanel loggingPanel = new LoggingPanel();
+        loggingPanel.setMinimumSize(new Dimension(100, 150));
+        loggingPanel.setPreferredSize(new Dimension(100, 150));
+        loggingPanel.setSize(new Dimension(100, 150));
+        return loggingPanel;
+    }
 }

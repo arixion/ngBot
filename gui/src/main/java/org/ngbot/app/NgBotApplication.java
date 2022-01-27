@@ -21,6 +21,8 @@ package org.ngbot.app;
 import org.ngbot.app.gui.NgBotMainFrame;
 import org.ngbot.app.gui.SplashScreen;
 
+import javax.swing.*;
+
 /**
  * @author Arpan Mukhopadhyay
  *
@@ -59,5 +61,6 @@ public class NgBotApplication {
         main.setVisible(true);
         main.toFront();
         splashScreen.close();
+        main.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     }
 }
