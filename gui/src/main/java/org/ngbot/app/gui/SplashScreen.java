@@ -57,7 +57,8 @@ public class SplashScreen extends JDialog {
     private JComponent createLogo() {
         JLabel logo = new JLabel();
         logo.setBorder(new EmptyBorder(10, 10, 10, 10));
-
+        ImageIcon logoIcon = new ImageIcon("/home/arixion/Workspaces/ngBot/gui/src/main/resources/org/ngbot/app/splash.png");
+        logo.setIcon(logoIcon);
         return logo;
     }
 
@@ -74,5 +75,15 @@ public class SplashScreen extends JDialog {
      */
     public void showSplash() {
         SwingUtilities.invokeLater(() -> setVisible(true));
+    }
+
+    /**
+     *
+     */
+    public void close() {
+        SwingUtilities.invokeLater(() -> {
+            setVisible(false);
+            dispose();
+        });
     }
 }

@@ -44,9 +44,20 @@ public class NgBotApplication {
     public void startGUI() {
         SplashScreen splashScreen = new SplashScreen();
         splashScreen.showSplash();
-        splashScreen.updateProgress(10);
+        final int progress = 100;
+        int currentProgress = 2;
+        try {
+            while (currentProgress <= progress) {
+                splashScreen.updateProgress(currentProgress);
+                Thread.sleep(50);
+                currentProgress++;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         NgBotMainFrame main = new NgBotMainFrame();
         main.setVisible(true);
         main.toFront();
+        splashScreen.close();
     }
 }
