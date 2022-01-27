@@ -22,6 +22,8 @@ import org.ngbot.app.gui.NgBotMainFrame;
 import org.ngbot.app.gui.SplashScreen;
 
 import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
 
 /**
  * @author Arpan Mukhopadhyay
@@ -33,7 +35,7 @@ public class NgBotApplication {
      *
      * @param args
      */
-    public void start(String[] args) {
+    public void start(String[] args) throws IOException, FontFormatException {
        boolean gui = true;
        if (gui) {
            startGUI();
@@ -43,7 +45,7 @@ public class NgBotApplication {
     /**
      * Starts the GUI
      */
-    public void startGUI() {
+    public void startGUI() throws IOException, FontFormatException {
         SplashScreen splashScreen = new SplashScreen();
         splashScreen.showSplash();
         final int progress = 100;

@@ -22,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * @author Arpan Mukhopadhyay
@@ -30,22 +31,23 @@ import java.awt.*;
 public class NgBotMainFrame extends JFrame {
 
     private LoggingPanel logPanel;
+    private GuiManager guiManager = new GuiManager();
 
     /**
      *
      */
-    public NgBotMainFrame() {
+    public NgBotMainFrame() throws IOException, FontFormatException {
         init();
     }
 
     /**
      *
      */
-    private void init() {
+    private void init() throws IOException, FontFormatException {
         JPanel root = new JPanel(new BorderLayout());
         JSplitPane mainSplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
         root.add(mainSplitPane, BorderLayout.CENTER);
-        logPanel = createLoggingPanel();
+        logPanel = createLoggingPanel(guiManager);
         root.add(logPanel);
         getContentPane().add(root);
         setTitle("NGBot");
@@ -56,8 +58,8 @@ public class NgBotMainFrame extends JFrame {
      *
      * @return
      */
-    private LoggingPanel createLoggingPanel() {
-        LoggingPanel loggingPanel = new LoggingPanel();
+    private LoggingPanel createLoggingPanel(GuiManager guiManager) throws IOException, FontFormatException {
+        LoggingPanel loggingPanel = new LoggingPanel(guiManager);
         loggingPanel.setMinimumSize(new Dimension(100, 150));
         loggingPanel.setPreferredSize(new Dimension(100, 150));
         loggingPanel.setSize(new Dimension(100, 150));

@@ -22,11 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.font.TextAttribute;
-import java.io.File;
 import java.io.IOException;
 import java.io.Serial;
-import java.util.Map;
 
 /**
  * @author Arpan Mukhopadhyay
@@ -37,13 +34,21 @@ public class LoggingPanel extends JPanel {
     @Serial
     private static final long serialVersionUID = 6761177260406622942L;
 
+    private GuiManager guiManager;
     private JTextArea logTextArea;
+    private JPopupMenu logContextMenu;
+    private final Font defaultConsoleFont;
+    private final Font defaultFont;
 
     /**
      *
      */
-    public LoggingPanel() {
+    public LoggingPanel(GuiManager guiManager) throws IOException, FontFormatException {
+        this.guiManager = guiManager;
+        defaultConsoleFont = guiManager.getFontManager().defaultConsoleFont();
+        defaultFont = guiManager.getFontManager().defaultFont();
         logTextArea = init();
+        addLogContextMenu();
     }
 
     /**
@@ -54,26 +59,38 @@ public class LoggingPanel extends JPanel {
         this.setLayout(new BorderLayout());
         final JScrollPane scrollPane;
         final JTextArea jTextArea = new JTextArea(15, 80);
-        Font f;
-        try {
-            f = Font.createFont(Font.TRUETYPE_FONT, new File("/home/arixion/Workspaces/ngBot/gui/src/main/resources/org/ngbot/app/RobotoMono-Regular.ttf"));
-            Map attributes = f.getAttributes();
-            attributes.put(TextAttribute.LIGATURES, TextAttribute.LIGATURES_ON);
-            attributes.put(TextAttribute.SIZE, 14f);
-            f = f.deriveFont(attributes);
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(f);
-            jTextArea.setFont(f);
-            jTextArea.setText("Some dummy text");
-//            jTextArea.setEditable(false);
-            jTextArea.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
-            scrollPane = new JScrollPane(jTextArea);
-            add(scrollPane, BorderLayout.CENTER);
-        } catch (FontFormatException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        jTextArea.setFont(defaultConsoleFont);
+        jTextArea.setText("11:50:51 PM: Execution finished ':launcher:Launcher.main()'.");
+        jTextArea.setEditable(false);
+        jTextArea.setCursor(Cursor.getPredefinedCursor(Cursor.TEXT_CURSOR));
+        scrollPane = new JScrollPane(jTextArea);
+        add(scrollPane, BorderLayout.CENTER);
         return jTextArea;
+    }
+
+    /**
+     *
+     * @throws IOException
+     * @throws FontFormatException
+     */
+    private void addLogContextMenu() throws IOException, FontFormatException {
+        logContextMenu = new JPopupMenu();
+        //TODO - Event driven menu item
+        logContextMenu.add(createContextMenuItem("Copy"));
+        logContextMenu.add(new JSeparator());
+        logContextMenu.add(createContextMenuItem("Clear all"));
+        logTextArea.setComponentPopupMenu(logContextMenu);
+    }
+
+    /**
+     *
+     * @param text
+     * @return
+     */
+    private JMenuItem createContextMenuItem(String text) {
+        JMenuItem item = new JMenuItem();
+        item.setFont(defaultFont);
+        item.setText(text);
+        return item;
     }
 }
